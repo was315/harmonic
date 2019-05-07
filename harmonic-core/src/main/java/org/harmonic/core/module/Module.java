@@ -9,7 +9,7 @@ import java.util.List;
  * A module is defined as a basic element of this project (harmonic). Class and Process
  * composed of {@link Processor} is used as a module.
  * The type of input parameters and output (return parameter) should be defined here as well as
- * the entry method. An entryMethod as the entrance of this module should also be defined.
+ * the entry method. An entry method is the entrance of this module.
  * If an instance of the module is injected into a {@link Processor} instance, it
  * can be executed.
  *
