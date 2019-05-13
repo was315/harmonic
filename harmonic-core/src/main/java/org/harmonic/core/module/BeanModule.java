@@ -1,10 +1,9 @@
 package org.harmonic.core.module;
 
 import lombok.Data;
+import org.harmonic.core.util.StringUtils;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author Shuai Wang
@@ -17,9 +16,16 @@ public class BeanModule<T> implements Module<T> {
 
     private Method entryMethod;
 
+    private String beanName;
+
     @Override
-    public List<Class> getInputTypes() {
-        return Arrays.asList(entryMethod.getParameterTypes());
+    public String getModuleName() {
+        return StringUtils.isNotEmpty(beanName) ? beanName : "Module[" + instance.getClass().getName() + "]";
+    }
+
+    @Override
+    public Class[] getInputTypes() {
+        return entryMethod.getParameterTypes();
     }
 
     @Override

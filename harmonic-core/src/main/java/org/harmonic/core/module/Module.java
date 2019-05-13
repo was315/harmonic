@@ -18,6 +18,8 @@ import java.util.List;
  */
 public interface Module<T> {
 
+    String getModuleName();
+
     /**
      * Set the instance of Module.
      * @param instance a Instance of Class or Process.
@@ -46,7 +48,7 @@ public interface Module<T> {
      * Get the Input Parameters type.
      * @return
      */
-    List<Class> getInputTypes();
+    Class[] getInputTypes();
 
     /**
      * Get the output (return parameter) type.

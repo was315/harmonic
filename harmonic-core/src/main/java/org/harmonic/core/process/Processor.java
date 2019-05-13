@@ -14,14 +14,26 @@ import org.harmonic.core.module.Module;
  */
 public interface Processor {
 
+    void setProcessorName(String name);
+
+    String getProcessorName();
+
     boolean invoke();
 
     void setModule(Module module);
 
+    Module getModule();
+
+    boolean isReady();
+
     void setInputConfig(InputConfig inputConfig);
+
+    InputConfig getInputConfig();
 
     <T> T getOutputValue();
 
-    boolean setIfNextLegal(Processor processor);
+    void setPrevious(Processor processor);
+
+    void setIfNextLegal(Processor processor);
 
 }
