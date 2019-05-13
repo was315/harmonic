@@ -17,7 +17,7 @@ public class SerialProcessor extends AbstractProcessor {
     }
 
     @Override
-    public boolean invoke() {
+    public Processor invoke() {
         if (!isReady()) {
             throw new ProcessorException(getProcessorName() + " can't be invoked. It is not ready!");
         }
@@ -32,15 +32,19 @@ public class SerialProcessor extends AbstractProcessor {
                 params[index] = getPrevious().getOutputValue();
             }
 
-            module.getEntryMethod().invoke(module.getInstance(), params);
+            Object result = module.getEntryMethod().invoke(module.getInstance(), params);
+            setOutputValue(result);
+            isSuccess.set(true);
+            if (getNext() != null) {
+                return getNext().invoke();
+            }
         } catch (Exception e) {
-            return false;
+            setError(e);
         } finally {
             isInvoked.set(true);
         }
 
-        isSuccess.set(true);
-        return true;
+        return this;
     }
 
 

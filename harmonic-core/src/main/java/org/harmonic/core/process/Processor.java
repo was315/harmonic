@@ -18,7 +18,7 @@ public interface Processor {
 
     String getProcessorName();
 
-    boolean invoke();
+    Processor invoke();
 
     void setModule(Module module);
 
@@ -35,5 +35,7 @@ public interface Processor {
     void setPrevious(Processor processor);
 
     void setIfNextLegal(Processor processor);
+
+    Throwable getError();
 
 }

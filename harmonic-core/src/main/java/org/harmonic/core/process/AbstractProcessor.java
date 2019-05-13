@@ -31,6 +31,8 @@ public abstract class AbstractProcessor implements Processor {
 
     private ThreadLocal<Boolean> isReady = ThreadUtils.newThreadLocal(false);
 
+    private Throwable error;
+
 
     AbstractProcessor(Module module, InputConfig inputConfig) {
         setModule(module);
@@ -136,6 +138,17 @@ public abstract class AbstractProcessor implements Processor {
 
         this.outputValue.set(outputValue);
     }
+
+
+    void setError(Throwable e) {
+        this.error = e;
+    }
+
+    @Override
+    public Throwable getError() {
+        return this.error;
+    }
+
 
     @SuppressWarnings("unchecked")
     private void checkInputTypes() {
