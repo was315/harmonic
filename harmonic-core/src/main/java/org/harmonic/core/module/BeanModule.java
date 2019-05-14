@@ -16,11 +16,11 @@ public class BeanModule<T> implements Module<T> {
 
     private Method entryMethod;
 
-    private String beanName;
+    private String moduleName;
 
     @Override
     public String getModuleName() {
-        return StringUtils.isNotEmpty(beanName) ? beanName : "Module[" + instance.getClass().getName() + "]";
+        return StringUtils.isNotEmpty(moduleName) ? moduleName : "Module[" + instance.getClass().getName() + "]";
     }
 
     @Override

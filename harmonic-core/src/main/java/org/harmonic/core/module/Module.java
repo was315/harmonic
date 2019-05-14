@@ -3,7 +3,6 @@ package org.harmonic.core.module;
 import org.harmonic.core.process.Processor;
 
 import java.lang.reflect.Method;
-import java.util.List;
 
 /**
  * A module is defined as a basic element of this project (harmonic). Class and Process
@@ -18,6 +17,16 @@ import java.util.List;
  */
 public interface Module<T> {
 
+    /**
+     * Set module a name, use default if not set.
+     * @param name
+     */
+    void setModuleName(String name);
+
+    /**
+     * Get the name of this module.
+     * @return {@code String} Module name
+     */
     String getModuleName();
 
     /**
