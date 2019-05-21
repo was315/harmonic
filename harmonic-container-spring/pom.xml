@@ -16,7 +16,7 @@
     <name>harmonic-container-spring</name>
 
     <properties>
-        <spring.version>4.3.12.RELEASE</spring.version>
+        <spring.version>4.3.18.RELEASE</spring.version>
     </properties>
 
 
